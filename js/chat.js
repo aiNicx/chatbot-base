@@ -175,7 +175,12 @@ class ChatBot {
         };
 
         // Chiamata al nostro backend invece che direttamente a OpenRouter
-        const response = await fetch('/api/chat', {
+        // Determina l'endpoint API in base all'ambiente
+        const apiEndpoint = window.location.hostname.includes('netlify')
+            ? '/.netlify/functions/chat'
+            : '/api/chat';
+        
+        const response = await fetch(apiEndpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
