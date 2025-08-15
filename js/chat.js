@@ -28,6 +28,11 @@ class ChatBot {
 
         // Auto-resize textarea
         this.userInput.addEventListener('input', this.autoResizeTextarea.bind(this));
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            setTimeout(() => this.scrollToBottom(), 100);
+        });
     }
 
     autoResizeTextarea() {
