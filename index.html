@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Base</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ChatBot Base</h1>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">Ciao! Sono il tuo assistente virtuale. Come posso aiutarti?</div>
+                    <div class="message-time"></div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <textarea id="userInput" placeholder="Scrivi il tuo messaggio..." rows="1"></textarea>
+                <button id="sendButton">Invia</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

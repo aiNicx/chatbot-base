@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
