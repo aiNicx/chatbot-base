@@ -71,6 +71,10 @@ OPENROUTER_API_KEY=your-actual-api-key-here
    ```bash
    npm run dev
    ```
+   o direttamente con Node.js:
+   ```bash
+   node server.js
+   ```
 
 ## Endpoint API
 

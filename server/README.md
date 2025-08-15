@@ -21,6 +21,10 @@ This is the backend server for the ChatBot Base application. It acts as an inter
    ```bash
    npm run dev
    ```
+   or directly with Node.js:
+   ```bash
+   node server.js
+   ```
 
 ## API Endpoints
 
