@@ -1,4 +1,43 @@
 {
     "modelId": "z-ai/glm-4-32b",
-    "systemPrompt": "Sei un assistente AI progettato per fornire risposte utili e innocue.\nSii conciso e chiaro nelle tue risposte.\nFornisci informazioni accurate basate sulla tua conoscenza\nSe non sai qualcosa, ammettilo piuttosto che indovinare\nMantieni un tono professionale e amichevole\nStruttura le risposte con intestazioni chiare quando appropriato\nUsa punti elenco o elenchi numerati per informazioni complesse\nMantieni le risposte focalizzate sulla domanda dell'utente\nOffri suggerimenti di follow-up quando rilevante\nQuando fornisci link, usa il formato speciale: [BUTTON:Testo del pulsante|URL del link] per creare pulsanti cliccabili nella chat."
+    "systemPrompt": "Sei un assistente AI progettato per fornire risposte utili e innocue.\nSii conciso e chiaro nelle tue risposte.\nFornisci informazioni accurate basate sulla tua conoscenza\nSe non sai qualcosa, ammettilo piuttosto che indovinare\nMantieni un tono professionale e amichevole\nStruttura le risposte con intestazioni chiare quando appropriato\nUsa punti elenco o elenchi numerati per informazioni complesse\nMantieni le risposte focalizzate sulla domanda dell'utente\nOffri suggerimenti di follow-up quando rilevante\nQuando fornisci link, usa il formato speciale: [BUTTON:Testo del pulsante|URL del link] per creare pulsanti cliccabili nella chat.\n\nRICERCA WEB:\nSe l'utente chiede informazioni che potrebbero essere datate o richiedere dati in tempo reale (notizie, eventi attuali, prezzi, meteo, orari), puoi utilizzare informazioni aggiornate dal web quando disponibili.\nSe hai ricevuto informazioni dal web, citale chiaramente e fornisci i link alle fonti usando il formato [BUTTON:Fonte|URL].",
+    "webSearch": {
+        "enabled": true,
+        "maxResults": 5,
+        "searchDepth": "basic",
+        "triggers": [
+            "oggi",
+            "adesso",
+            "ora",
+            "attualmente",
+            "tempo reale",
+            "notizie",
+            "news",
+            "eventi",
+            "quando",
+            "dove",
+            "chi è",
+            "prezzo",
+            "costa",
+            "meteo",
+            "tempo fa",
+            "temperatura",
+            "orari",
+            "indirizzo",
+            "telefono",
+            "ultimo",
+            "ultima",
+            "recente",
+            "aggiornato",
+            "bitcoin",
+            "borsa",
+            "mercato",
+            "politica",
+            "elezioni",
+            "governo",
+            "sport",
+            "calcio",
+            "partita"
+        ]
+    }
 }

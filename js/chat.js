@@ -176,14 +176,16 @@ class ChatBot {
 
         const requestBody = {
             model: this.config.modelId,
-            messages: messages
+            messages: messages,
+            config: this.config // Passa la configurazione per la ricerca web
         };
 
-        // Chiamata al nostro backend invece che direttamente a OpenRouter
         // Determina l'endpoint API in base all'ambiente
+        // Usa il nuovo endpoint con ricerca web se disponibile
+        const useWebSearch = this.config.webSearch && this.config.webSearch.enabled;
         const apiEndpoint = window.location.hostname.includes('netlify')
-            ? '/.netlify/functions/chat'
-            : '/api/chat';
+            ? (useWebSearch ? '/.netlify/functions/chat-with-search' : '/.netlify/functions/chat')
+            : (useWebSearch ? '/api/chat-with-search' : '/api/chat');
         
         const response = await fetch(apiEndpoint, {
             method: 'POST',
@@ -199,7 +201,68 @@ class ChatBot {
         }
 
         const data = await response.json();
+        
+        // Se la ricerca web è stata eseguita, mostra un indicatore
+        if (data.searchMetadata && data.searchMetadata.searchPerformed) {
+            console.log('🔍 Ricerca web eseguita:', data.searchMetadata);
+            this.showWebSearchIndicator(data.searchMetadata);
+        }
+        
         return data.choices[0].message.content.trim();
+    }
+
+    showWebSearchIndicator(metadata) {
+        // Mostra un piccolo indicatore che è stata utilizzata la ricerca web
+        const indicator = document.createElement('div');
+        indicator.className = 'web-search-indicator';
+        indicator.innerHTML = `
+            <span class="search-icon">🔍</span>
+            <span class="search-text">Informazioni aggiornate dal web (${metadata.resultsCount} fonti)</span>
+        `;
+        indicator.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: slideInRight 0.3s ease-out;
+        `;
+
+        // Aggiungi animazione CSS se non esiste
+        if (!document.querySelector('#webSearchStyles')) {
+            const style = document.createElement('style');
+            style.id = 'webSearchStyles';
+            style.textContent = `
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                .web-search-indicator .search-icon {
+                    font-size: 1.1em;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        document.body.appendChild(indicator);
+
+        // Rimuovi l'indicatore dopo 4 secondi
+        setTimeout(() => {
+            if (indicator.parentNode) {
+                indicator.style.animation = 'slideInRight 0.3s ease-out reverse';
+                setTimeout(() => {
+                    indicator.remove();
+                }, 300);
+            }
+        }, 4000);
     }
 }
 

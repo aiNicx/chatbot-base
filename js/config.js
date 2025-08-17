@@ -19,14 +19,16 @@ class Config {
             return {
                 modelId: mainConfig.modelId,
                 primarySystemPrompt: mainConfig.systemPrompt,
-                secondarySystemPrompt: specificConfig && specificConfig.systemPrompt ? specificConfig.systemPrompt : null
+                secondarySystemPrompt: specificConfig && specificConfig.systemPrompt ? specificConfig.systemPrompt : null,
+                webSearch: mainConfig.webSearch || { enabled: false }
             };
         } catch (error) {
             console.error('Errore nel caricamento della configurazione:', error);
             return {
                 modelId: '',
                 primarySystemPrompt: 'Sei un assistente virtuale di nome Marios Brazil, utile, cortese e competente. Il tuo scopo è aiutare gli utenti fornendo informazioni accurate, assistenza con compiti specifici e mantenendo una conversazione amichevole e professionale.',
-                secondarySystemPrompt: null
+                secondarySystemPrompt: null,
+                webSearch: { enabled: false }
             };
         }
     }
