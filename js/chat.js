@@ -5,6 +5,7 @@ class ChatBot {
         this.initializeElements();
         this.loadConfig();
         this.setupEventListeners();
+        this.showWelcomeMessage();
     }
 
     initializeElements() {
@@ -61,47 +62,117 @@ class ChatBot {
         messageDiv.appendChild(timeDiv);
         this.chatMessages.appendChild(messageDiv);
         
+        // Salva il messaggio nella cronologia per mantenere il contesto
+        this.messages.push({
+            role: isUser ? 'user' : 'assistant',
+            content: content
+        });
+        
         this.scrollToBottom();
     }
     
     parseAndRenderContent(container, content) {
-        // Check if content contains button format: [BUTTON:Text|URL]
+        // First, process custom button format: [BUTTON:Text|URL]
         const buttonRegex = /\[BUTTON:([^\]]*?)\|([^\]]*?)\]/g;
-        let lastIndex = 0;
-        let match;
-        
-        // Process content and extract buttons
-        while ((match = buttonRegex.exec(content)) !== null) {
-            // Add text before the button
-            if (match.index > lastIndex) {
-                const textNode = document.createTextNode(content.substring(lastIndex, match.index));
-                container.appendChild(textNode);
+        let processedContent = content.replace(buttonRegex, (match, buttonText, buttonUrl) => {
+            // Create a unique placeholder for each button
+            const buttonId = `BUTTON_PLACEHOLDER_${Math.random().toString(36).substr(2, 9)}`;
+            // Store button data for later processing
+            if (!this.buttonData) this.buttonData = {};
+            this.buttonData[buttonId] = { text: buttonText, url: buttonUrl };
+            return buttonId;
+        });
+
+        // Parse markdown content
+        if (typeof marked !== 'undefined') {
+            // Configure marked options for security and formatting
+            marked.setOptions({
+                breaks: true, // Convert line breaks to <br>
+                gfm: true,    // GitHub Flavored Markdown
+                sanitize: false, // We control the input
+                smartLists: true,
+                smartypants: false
+            });
+            
+            try {
+                // Parse markdown to HTML
+                const htmlContent = marked.parse(processedContent);
+                container.innerHTML = htmlContent;
+            } catch (error) {
+                console.warn('Markdown parsing failed, falling back to plain text:', error);
+                container.textContent = content;
+                return;
             }
-            
-            // Create button element
-            const buttonText = match[1];
-            const buttonUrl = match[2];
-            
-            const button = document.createElement('button');
-            button.className = 'chat-button';
-            button.textContent = buttonText;
-            button.onclick = () => window.open(buttonUrl, '_blank');
-            
-            container.appendChild(button);
-            
-            lastIndex = match.index + match[0].length;
+        } else {
+            // Fallback: basic markdown parsing if marked.js is not available
+            processedContent = this.basicMarkdownParse(processedContent);
+            container.innerHTML = processedContent;
         }
-        
-        // Add remaining text after the last button
-        if (lastIndex < content.length) {
-            const textNode = document.createTextNode(content.substring(lastIndex));
-            container.appendChild(textNode);
+
+        // Now replace button placeholders with actual button elements
+        if (this.buttonData) {
+            Object.keys(this.buttonData).forEach(buttonId => {
+                // Find text nodes containing the placeholder using TreeWalker
+                const walker = document.createTreeWalker(
+                    container,
+                    NodeFilter.SHOW_TEXT,
+                    null,
+                    false
+                );
+                
+                let textNode;
+                while (textNode = walker.nextNode()) {
+                    if (textNode.textContent.includes(buttonId)) {
+                        const buttonData = this.buttonData[buttonId];
+                        const button = document.createElement('button');
+                        button.className = 'chat-button';
+                        button.textContent = buttonData.text;
+                        button.onclick = () => window.open(buttonData.url, '_blank');
+                        
+                        // Replace the placeholder text with the button
+                        const parts = textNode.textContent.split(buttonId);
+                        const parent = textNode.parentNode;
+                        
+                        if (parts[0]) {
+                            parent.insertBefore(document.createTextNode(parts[0]), textNode);
+                        }
+                        parent.insertBefore(button, textNode);
+                        if (parts[1]) {
+                            parent.insertBefore(document.createTextNode(parts[1]), textNode);
+                        }
+                        parent.removeChild(textNode);
+                        break;
+                    }
+                }
+            });
+            // Clean up button data
+            this.buttonData = {};
         }
-        
-        // If no buttons were found, just add the text content
-        if (lastIndex === 0) {
-            container.textContent = content;
-        }
+    }
+
+    // Basic markdown parser fallback
+    basicMarkdownParse(text) {
+        return text
+            // Headers
+            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+            // Bold
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/__(.*?)__/g, '<strong>$1</strong>')
+            // Italic
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/_(.*?)_/g, '<em>$1</em>')
+            // Code
+            .replace(/`(.*?)`/g, '<code>$1</code>')
+            // Line breaks
+            .replace(/\n/g, '<br>')
+            // Lists (basic)
+            .replace(/^\- (.*$)/gim, '<li>$1</li>')
+            .replace(/^(\d+)\. (.*$)/gim, '<li>$1. $2</li>')
+            // Wrap consecutive <li> elements in <ul>
+            .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+            .replace(/<\/ul>\s*<ul>/g, '');
     }
 
     showLoading() {
@@ -127,6 +198,30 @@ class ChatBot {
 
     scrollToBottom() {
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    }
+
+    showWelcomeMessage() {
+        // Mostra il messaggio di benvenuto senza aggiungerlo alla cronologia
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.textContent = 'Ciao! Sono il tuo assistente virtuale. Come posso aiutarti?';
+        
+        const timeDiv = document.createElement('div');
+        timeDiv.className = 'message-time';
+        timeDiv.textContent = new Date().toLocaleTimeString('it-IT', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        messageDiv.appendChild(contentDiv);
+        messageDiv.appendChild(timeDiv);
+        this.chatMessages.appendChild(messageDiv);
+        
+        // NON aggiungere alla cronologia - questo è solo un messaggio di benvenuto
+        this.scrollToBottom();
     }
 
     async sendMessage() {
@@ -171,7 +266,10 @@ class ChatBot {
             messages.push({ role: 'system', content: this.config.secondarySystemPrompt });
         }
         
-        // Aggiungi il messaggio dell'utente
+        // Aggiungi tutti i messaggi precedenti della conversazione per mantenere il contesto
+        messages.push(...this.messages);
+        
+        // Aggiungi il messaggio corrente dell'utente
         messages.push({ role: 'user', content: message });
 
         const requestBody = {

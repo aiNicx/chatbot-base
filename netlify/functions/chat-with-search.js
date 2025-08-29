@@ -97,18 +97,52 @@ class SearchDecision {
             return false;
         }
 
-        const lowerMessage = message.toLowerCase();
-        const triggers = config.webSearch.triggers || [];
-
-        const hasKeywordTrigger = triggers.some(trigger => 
-            lowerMessage.includes(trigger.toLowerCase())
+        const msg = message.toLowerCase();
+        
+        // Controllo pattern di esclusione per messaggi di saluto/prenotazione
+        const excludePatterns = config.webSearch?.excludePatterns || [];
+        const hasExcludePattern = excludePatterns.some(pattern => 
+            msg.includes(pattern.toLowerCase())
         );
-
-        const hasTemporalPattern = this.hasTemporalPattern(lowerMessage);
-        const hasInfoRequest = this.hasInformationRequest(lowerMessage);
-        const hasNewsPattern = this.hasNewsPattern(lowerMessage);
-
-        return hasKeywordTrigger || hasTemporalPattern || hasInfoRequest || hasNewsPattern;
+        
+        // Pattern specifici per ristorante/prenotazioni da escludere
+        const restaurantPatterns = /\b(prenotare|prenotazione|tavolo|ristorante|cena|pranzo|menu|carta|piatti|cucina|sala|posto|posti|disponibilità|orari?\s+(del\s+)?ristorante|come\s+(posso\s+)?prenotare|vorrei\s+prenotare|voglio\s+prenotare|posso\s+prenotare|prenotare\s+un\s+tavolo|riservare|reservation|book|booking|table|restaurant|dinner|lunch)\b/i;
+        
+        // Pattern di saluto da escludere
+        const greetingPatterns = /^(ciao|salve|buongiorno|buonasera|buonanotte|hello|hi|good\s+morning|good\s+evening|good\s+night|hola|buenos\s+días|buenas\s+tardes|salut|bonjour|bonsoir|hallo|guten\s+tag|guten\s+abend)[\s\.,!]*$/i;
+        
+        if (hasExcludePattern || restaurantPatterns.test(msg) || greetingPatterns.test(msg)) {
+            console.log(`[SearchDecision] Messaggio escluso dalla ricerca web: "${message.substring(0, 50)}..."`);
+            return false;
+        }
+        
+        // Sistema di scoring intelligente multilingue (più restrittivo)
+        const scores = {
+            // Pattern temporali specifici e forti
+            temporal: /\b(oggi|today|hoy|aujourd\'?hui|heute)\s+(il\s+)?(meteo|weather|tiempo|météo|wetter|prezzo|price|precio|prix|preis|notizie|news|noticias|nouvelles|nachrichten)\b/i.test(msg) ? 2 : 0,
+            
+            // Dati real-time specifici
+            realTime: /\b(prezzo\s+(attuale|corrente|di\s+oggi)|current\s+price|meteo\s+(di\s+oggi|attuale)|today\'?s\s+weather|notizie\s+(di\s+oggi|attuali)|today\'?s\s+news|borsa\s+(oggi|attuale)|stock\s+market\s+today|bitcoin\s+(prezzo|price))\b/i.test(msg) ? 2.5 : 0,
+            
+            // Pattern temporali compositi forti
+            temporalComposite: /\b(che\s+tempo\s+fa\s+(oggi|adesso)|what\'?s\s+the\s+weather\s+(today|now)|qué\s+tiempo\s+hace\s+hoy|quel\s+temps\s+fait\s+aujourd\'?hui|wie\s+ist\s+das\s+wetter\s+heute)\b/i.test(msg) ? 3 : 0,
+            
+            // Pattern di prezzo/costo specifici
+            pricing: /\b(quanto\s+costa\s+(oggi|adesso|attualmente)|how\s+much\s+(costs?|is)\s+.+\s+(today|now)|prezzo\s+(attuale|corrente|di\s+oggi))\b/i.test(msg) ? 2.5 : 0,
+            
+            // Pattern notizie specifiche
+            news: /\b(ultime\s+notizie|latest\s+news|notizie\s+(di\s+oggi|attuali)|breaking\s+news|news\s+today)\b/i.test(msg) ? 2.5 : 0
+        };
+        
+        const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
+        const threshold = config.webSearch?.intelligentThreshold || 2.5;
+        
+        // Log per debug
+        if (totalScore > 0) {
+            console.log(`[SearchDecision] Message: "${message.substring(0, 50)}..." | Score: ${totalScore} | Threshold: ${threshold} | Will search: ${totalScore >= threshold}`);
+        }
+        
+        return totalScore >= threshold;
     }
 
     static extractSearchQuery(message) {

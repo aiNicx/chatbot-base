@@ -246,3 +246,168 @@ header h1 {
 .bot-message .chat-button {
     align-self: flex-start;
 }
+
+/* Markdown styling for message content */
+.message-content h1,
+.message-content h2,
+.message-content h3,
+.message-content h4,
+.message-content h5,
+.message-content h6 {
+    margin: 0.5em 0 0.3em 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.message-content h1 {
+    font-size: 1.4em;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.2em;
+}
+
+.message-content h2 {
+    font-size: 1.2em;
+    color: #34495e;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 0.1em;
+}
+
+.message-content h3 {
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+.message-content strong {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.message-content em {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+.message-content code {
+    background-color: #f8f9fa;
+    color: #e74c3c;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9em;
+    border: 1px solid #e9ecef;
+}
+
+.message-content pre {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9em;
+    border: 1px solid #e9ecef;
+    margin: 0.5em 0;
+    line-height: 1.4;
+}
+
+.message-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+}
+
+.message-content ul,
+.message-content ol {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+    line-height: 1.6;
+}
+
+.message-content ul {
+    list-style-type: disc;
+}
+
+.message-content ol {
+    list-style-type: decimal;
+}
+
+.message-content li {
+    margin: 0.2em 0;
+}
+
+.message-content ul ul,
+.message-content ol ol,
+.message-content ul ol,
+.message-content ol ul {
+    margin: 0.2em 0;
+    padding-left: 1.2em;
+}
+
+.message-content blockquote {
+    border-left: 4px solid #3498db;
+    margin: 0.5em 0;
+    padding: 0.5em 0 0.5em 1em;
+    background-color: #f8f9fa;
+    font-style: italic;
+    color: #5a6c7d;
+}
+
+.message-content p {
+    margin: 0.5em 0;
+    line-height: 1.6;
+}
+
+.message-content p:first-child {
+    margin-top: 0;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ensure proper spacing between markdown elements */
+.message-content > *:first-child {
+    margin-top: 0;
+}
+
+.message-content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Special styling for bot messages with markdown */
+.bot-message .message-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Responsive adjustments for markdown */
+@media (max-width: 768px) {
+    .message-content h1 {
+        font-size: 1.3em;
+    }
+    
+    .message-content h2 {
+        font-size: 1.15em;
+    }
+    
+    .message-content h3 {
+        font-size: 1.05em;
+    }
+    
+    .message-content code {
+        font-size: 0.85em;
+        padding: 1px 4px;
+    }
+    
+    .message-content pre {
+        font-size: 0.85em;
+        padding: 0.8em;
+    }
+    
+    .message-content ul,
+    .message-content ol {
+        padding-left: 1.2em;
+    }
+}
