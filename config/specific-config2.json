@@ -1,0 +1,224 @@
+{
+  "luogo": {
+    "nome": "Marina D'Albori",
+    "descrizione": "Piccola conca sulla Costiera Amalfitana, 1.5 km da Vietri sul Mare, con due spiagge divise da un ruscello e circondate da montagne. Borgo di Raito visibile dall'alto.",
+    "coordinate": [40.66366904591947, 14.715211394825355],
+    "clima": {
+      "generale": "Leggermente più fresco rispetto a Vietri sul Mare e Salerno.",
+      "estate": "Maestrale rinfresca dalle 12:00/13:00. Sera fresca, spesso necessaria giacca leggera.",
+      "tramonti": "Sole tramonta verso destra, cielo rosa tra 18:00 e 19:00.",
+      "luna": "A volte rossa, spettacolare dalla spiaggia."
+    },
+    "storia": {
+      "cartiera": "Costruita nel 1830, una delle 5 cartiere di Vietri sul Mare, produceva carta Amalfitana.",
+      "alluvione": "1954, danneggiata la cartiera e modificate le spiagge.",
+      "resti": "Vasche in pietra e locali semi-interrati sotto l'attuale ristorante."
+    },
+    "servizi": {
+      "ristorante": "Marina D'Albori",
+      "case_vacanza": true,
+      "lidi": [
+        {
+          "nome": "Lido da Enzuccio",
+          "servizi": ["lettini", "ombrelloni", "bar", "pedalo", "canoe"]
+        },
+        {
+          "nome": "Lido A' Cartera",
+          "servizi": ["lettini", "ombrelloni", "pedalo", "canoe"]
+        }
+      ],
+      "noleggio_sup": "10€/ora",
+      "accesso_mare": "Libero, non è permesso posare asciugamani senza lettino",
+      "molo_ristorante": true,
+      "boe_ormeggio": true
+    },
+    "faq": {
+      "generali": [
+        {
+          "domanda": "Qual è il periodo migliore per visitare Marina D'Albori?",
+          "risposta": "Primavera e inizio autunno offrono clima mite, meno affollamento e splendidi tramonti."
+        },
+        {
+          "domanda": "È adatta a famiglie con bambini?",
+          "risposta": "Sì, ma attenzione a scalini e passeggini."
+        },
+        {
+          "domanda": "Quanti scalini ci sono per raggiungere la spiaggia?",
+          "risposta": "Circa 200 scalini dalla via Costiera."
+        }
+      ],
+      "spiaggia": [
+        {
+          "domanda": "Ci sono lettini e ombrelloni disponibili?",
+          "risposta": "Sì, presso Lido da Enzuccio e Lido A' Cartera."
+        },
+        {
+          "domanda": "Si può accedere alla spiaggia liberamente?",
+          "risposta": "L'accesso al mare è libero, ma per rimanere in spiaggia è necessario affittare un lettino."
+        },
+        {
+          "domanda": "Ci sono bar o punti ristoro sulla spiaggia?",
+          "risposta": "Sì, il nostro ristorante e il bar del Lido da Enzuccio."
+        }
+      ],
+      "mare_e_attivita": [
+        {
+          "domanda": "È possibile noleggiare SUP, pedalò o canoe?",
+          "risposta": "Sì, SUP presso il ristorante (10€/ora) e pedalò/canoe presso entrambi i lidi."
+        },
+        {
+          "domanda": "È possibile attraccare con la propria barca?",
+          "risposta": "Sì, al nostro molo o alle boe, previa autorizzazione, con servizio di sbarco/imbarco gratuito."
+        }
+      ],
+      "clima_e_tramonti": [
+        {
+          "domanda": "Com'è il clima in zona?",
+          "risposta": "Generalmente più fresco di Vietri e Salerno. In estate il maestrale rinfresca dal mezzogiorno e la sera può essere necessario indossare una giacca leggera."
+        },
+        {
+          "domanda": "Come sono i tramonti?",
+          "risposta": "Intorno alle 18:00/19:00 il cielo diventa rosa; alcune sere è visibile la luna rossa."
+        }
+      ],
+      "limoneto": [
+        {
+          "domanda": "È presente un limoneto?",
+          "risposta": "Sì, dietro il ristorante, con piante di sfusato amalfitano e tipici terrazzamenti."
+        }
+      ],
+      "accesso_senza_scalini": [
+        {
+          "domanda": "Come raggiungere il ristorante senza salire le scale?",
+          "risposta": "1. Taxi boat da Marina di Vietri (10€ A/R, bambini metà)\n2. Propria imbarcazione con attracco al molo o alle boe, sbarco gratuito\n3. Accesso via spiaggia con lettino affittato"
+        }
+      ]
+    },
+    "come_raggiungerci": {
+      "strada": {
+        "da_nord": "Autostrada A3, uscita Vietri sul Mare, SS163 verso Amalfi, 1.5 km dopo Vietri, scalinata a sinistra",
+        "da_sud": "Autostrada A3, uscita Salerno, SS163 verso Amalfi, 1.5 km dopo Vietri, scalinata a sinistra",
+        "da_costiera": "SS163 verso Salerno/Vietri, destra dopo Cetara prima di Vietri"
+      },
+      "via_mare": [
+        "Taxi boat da Marina di Vietri (10€ A/R, bambini metà), solo con prenotazione al ristorante",
+        "Propria imbarcazione con molo/boa e sbarco gratuito, solo con prenotazione al ristorante"
+      ],
+      "parcheggi": [
+        "Parcheggio a pagamento 8:00-18:00 oppure lungo la strada",
+        "Parcheggio campo sportivo vicino pontile per taxi boat",
+        "a Marina di Vietri sul MarePosti blu nel paese"
+      ]
+    },
+    "trekking": {
+      "introduzione": "Rete di sentieri tra i borghi di Vietri sul Mare e Monti Lattari, panorami mozzafiato, sosta ideale al ristorante.",
+      "percorsi": [
+        {
+          "nome": "Sentiero dei Borghi Vietresi (Anello)",
+          "lunghezza_km": "7.5-10.5",
+          "dislivello_m": 350,
+          "durata_h": 3-4,
+          "difficolta": "Media (E)",
+          "punti_interesse": ["Benincasa", "Dragonea", "Iaconti", "Albori", "Raito", "Sorgente del Cesare"],
+          "collegamento_ristorante": "Deviazione CAI 303A per scendere a Marina D'Albori"
+        },
+        {
+          "nome": "Anello Albori - Monte Falerio",
+          "lunghezza_km": 8.8,
+          "dislivello_m": 700,
+          "durata_h": 4-5,
+          "difficolta": "Medio-Impegnativa (EE)",
+          "punti_interesse": ["Albori", "Sorgente del Cesare", "Monte Falerio", "Cappella Vecchia", "Dragonea"],
+          "collegamento_ristorante": "Scalinata 200 gradini da Albori"
+        },
+        {
+          "nome": "Raito - Maiori (Santuario Avvocata)",
+          "dislivello_m": { "positivo": 815, "negativo": 983 },
+          "durata_h": 6,
+          "difficolta": "Impegnativa (EE)",
+          "punti_interesse": ["Raito", "Albori", "Santuario Avvocata", "Maiori"],
+          "collegamento_ristorante": "Passaggio da Albori"
+        },
+        {
+          "nome": "Dragonea - Cetara",
+          "lunghezza_km": 6.5,
+          "dislivello_m": 245,
+          "durata_h": 2,
+          "difficolta": "Facile (T)",
+          "punti_interesse": ["Iaconti", "Cetara"],
+          "collegamento_ristorante": "Escursione alternativa senza grandi dislivelli"
+        }
+      ],
+      "riferimenti": ["CAI 300", "CAI 303", "CAI 303A", "Apps: Maps.me, Wikiloc"]
+    }
+  },
+  "ristorante": {
+    "prodotti": {
+      "pesce": "Azzurro e del giorno secondo stagionalità",
+      "vini": "Ettore Sammarco, biancolella d'ischia, fior d'uva Marisa Cuomo, Fiano Colli di Lapio, Vetere rosè, Franciacorta Contaldi Castaldi",
+      "prodotti_tipici": true
+    },
+    "esperienze": {
+      "cena_romantica": "Arrivo in taxi boat, tavoli vista mare, atmosfera notturna tra Vietri e Raito",
+      "tavoli_vista_mare": true
+    },
+    "orari": {
+      "pranzo": "12:30-15:15",
+      "cena": "19:30-22:15",
+      "stagionale": "15 Maggio - 15 Settembre"
+    }
+  },
+  "esperienze": {
+    "pacchetti": {
+      "base": {
+        "trasferimento": "Barca A/R",
+        "menu": "3 portate con pescato locale",
+        "vino": "Calice incluso",
+        "acqua": true,
+        "limoncello": true
+      },
+      "premium": {
+        "trasferimento": "Barca A/R",
+        "menu": "4 portate con pescato locale e specialità",
+        "vino": "Bottiglia Sammarco ogni 2 persone, calice prosecco di benvenuto",
+        "acqua": true,
+        "limoncello": true
+      },
+      "gold": {
+        "trasferimento": "Barca A/R",
+        "degustazione_limoni": true,
+        "servizio_spiaggia": "lettino e ombrellone",
+        "menu": "4 portate, miglior pescato del giorno",
+        "vino": "Bottiglia Sammarco Ravello ogni 2 persone",
+        "acqua": true,
+        "aperitivo_tramonto": true
+      },
+      "aperitivo_lunch": {
+        "trasferimento": "Barca A/R",
+        "prodotti_tipici": true,
+        "calice_vino": true,
+        "servizio_spiaggia": true
+      }
+    },
+    "limoneto": {
+      "descrizione": "Piccolo limoneto a 30 metri dal mare, piante sfusato amalfitano fino a 80 anni, terrazzamenti tipici",
+      "eventi": ["degustazioni", "sala eventi privati", "compleanni", "gender reveal"],
+      "prodotti": ["dolci", "piatti", "limoncello"]
+    }
+  },
+  "be_a_local": {
+    "storie_cultura": ["racconti e curiosità", "personaggi storici"],
+    "vivere_abitante": ["scalinata panoramica", "trekking e benessere fisico"]
+  },
+  "contatti": {
+    "telefono": ["+39 3478671652", "+39 3456187580"],
+    "email": "marinadalbori@gmail.com",
+    "social": {
+      "instagram": "https://www.instagram.com/marinadalbori/",
+      "facebook": "https://www.facebook.com/marinadalbori",
+      "tiktok": "https://www.tiktok.com/@marinadalbori?_t=ZN-8zFHG7nnBBO&_r=1"
+    },
+    "sito": "https://www.marinadalbori.it/",
+    "lingue": ["italiano", "inglese"]
+  }
+}
