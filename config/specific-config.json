@@ -17,7 +17,7 @@
       "name": "Marina D'Albori",
       "position": "Costiera Amalfitana, 1.5km da Vietri sul Mare",
       "coordinates": "40.66366904591947, 14.715211394825355",
-      "description": "Piccola conca costituita da due spiagge con acque cristalline, divise da un piccolo ruscello e avvolte dalle montagne. Il ristorante marinadalbori si trova subito alle spalle della spiaggia alla destra del fiume, ha la sala solo esterna e dietro di essa c'è il nostro piccolo caratteristico limoneto di sfusato amalfitano con i tipici terrazzamenti della zona.",
+      "description": "Piccola conca costituita da due spiagge con acque cristalline, divise da un piccolo ruscello e avvolte dalle montagne. Il ristorante marinadalbori si trova subito alle spalle della spiaggia alla destra del fiume, ha la sala solo esterna e dietro di essa c'è il nostro piccolo caratteristico limoneto di sfusato amalfitano con i tipici terrazzamenti della zona. Da Marina D’Albori guardando in alto è possibile vedere parte del borgo di Raito.",
       "geography": {
         "terrain": "Sottoposta alla via Costiera e distante circa 200 scalini dalla strada in discesa per raggiungere la spiaggia",
         "view": "Da Marina D'Albori guardando in alto è possibile vedere parte del borgo di Raito",
@@ -28,18 +28,18 @@
       "access": {
         "stairs": "Circa 200 scalini separano la via Costiera dalla spiaggia",
         "road_directions": {
-          "main_road": "Marina d'Albori si trova lungo la Strada Statale 163 Amalfitana (SS163), la strada principale che percorre l'intera Costiera Amalfitana",
+          "main_road": "Marina d'Albori si trova lungo la Strada Statale 163 Amalfitana (SS163), la strada principale che percorre l'intera Costiera Amalfitana, 1.5km da Vietri sul Mare",
           "from_north": "Prendere l'autostrada A3 Salerno-Reggio Calabria, uscire allo svincolo di Vietri sul Mare. Imboccare la SS163 in direzione Amalfi. Dopo circa 1,5 km, superato il centro di Vietri, prestare attenzione alla vostra sinistra (lato mare) alla ricerca della piccola insenatura e della segnaletica per 'marinadalbori ristorante' quello sarà il punto di inizio della scalinata",
-          "from_south": "Prendere l'autostrada A3 Salerno-Reggio Calabria, uscire a Salerno. Imboccare la SS163 in direzione Amalfi. Dopo circa 1,5 km, superato il centro di Vietri, prestare attenzione alla vostra sinistra (lato mare) alla ricerca della piccola insenatura e della segnaletica per 'marinadalbori ristorante' quello sarà il punto di inizio della scalinata",
-          "from_coast": "Percorrere la SS163 in direzione Salerno/Vietri sul Mare. Marina d'Albori si troverà sulla vostra destra (lato mare) dopo aver superato Cetara e prima di raggiungere Vietri sul Mare."
+          "from_south": "Prendere l'autostrada A3 Salerno-Reggio Calabria, uscire a Salerno. Raggiungere Vietri sul Mare poi imboccare la SS163 in direzione Amalfi. Dopo circa 1,5 km, superato il centro di Vietri, prestare attenzione alla vostra sinistra (lato mare) alla ricerca della piccola insenatura e della segnaletica per 'marinadalbori ristorante' quello sarà il punto di inizio della scalinata",
+          "from_coast": "Percorrere la SS163 in direzione Salerno/Vietri sul Mare. L'inizio delle scale per Marina d'Albori si troverà sulla vostra destra (lato mare) dopo aver superato Cetara e prima di raggiungere Vietri sul Mare."
         },
         "parking": {
           "coastal_road": "Arrivando dalla strada costiera di giorno c'è un parcheggio a pagamento aperto dalle ore 8:00 alle ore 18:00 oppure è possibile parcheggiare lungo la strada sia di giorno che di sera.",
           "vietri_marina": "Per chi viene con taxi boat da Marina di Vietri è possibile parcheggiare nel parcheggio campo sportivo che è a 10 metri dal pontile vietri vacanze oppure parcheggiare in uno dei posti blu del paese."
         },
         "alternatives": [
-          "Taxi boat da Marina di Vietri (Pontile Vietri Vacanze) al costo di 5€ andata e 5€ ritorno a persona (i bambini pagano la metà). Il servizio è disponibile soltanto per i clienti che vengono a mangiare al ristorante",
-          "Con la propria imbarcazione: È possibile attraccare al nostro piccolo molo di attracco (situato a sinistra rispetto al Lido A' Cartera) previa autorizzazione, oppure ancorare nelle nostre boe di ormeggio dedicate. Offriamo gratuitamente il servizio di sbarco e imbarco dal nostro pontile.",
+          "Taxi boat da Marina di Vietri (Pontile Vietri Vacanze) al costo di 5€ andata e 5€ ritorno a persona, 10€ in totale per andata e ritorno (i bambini pagano la metà). Il servizio è disponibile soltanto per i clienti che vengono a mangiare al ristorante",
+          "Con la propria imbarcazione: È possibile attraccare al nostro piccolo molo di attracco (situato a sinistra rispetto al Lido A' Cartera) previa autorizzazione, oppure ancorare nelle nostre boe di ormeggio dedicate. Offriamo gratuitamente il servizio di sbarco e imbarco dal nostro pontile per chi prenota un tavolo al ristorante.",
           "Attraverso la spiaggia: È possibile accedere liberamente alla spiaggia, ma per rimanere in spiaggia è necessario affittare un lettino da uno dei due lidi gestiti (Lido da Enzuccio o Lido A' Cartera)."
         ]
       },
@@ -52,15 +52,15 @@
           "Boe di ormeggio nello spazio acqua antistante la marina"
         ],
         "beach_facilities": [
-          "Lido da Enzuccio (lido a sinistra del fiume, quello col bar): fitta lettini e ombrelloni in spiaggia oppure sul solarium (un pavimento in legno a picco sul mare). Affitta pedalò e canoe.",
-          "Lido A' Cartera (lido a destra del fiume): fitta lettini e ombrelloni in spiaggia. Affitta pedalò e canoe."
+          "Lido da Enzuccio (lido a sinistra del fiume, quello col bar): fitta lettini e ombrelloni in spiaggia oppure sul solarium (un pavimento in legno a picco sul mare). Affitta pedalò e canoe. Non è gestito da noi del ristorante, ma da un'altra azienda.",
+          "Lido A' Cartera (lido a destra del fiume): fitta lettini e ombrelloni in spiaggia. Affitta pedalò e canoe. Non è gestito da noi del ristorante, ma da un'altra azienda."
         ],
         "beach_rules": "In entrambe le spiagge l'accesso al mare è libero ma non è possibile posare asciugamani, per affittare un lettino invece bisogna riferirsi ad uno dei due lidi."
       },
       "faq": [
         {
           "question": "Qual è il periodo migliore per visitare Marina D'Albori?",
-          "answer": "I mesi estivi sono i più frequentati per la balneazione, ma la primavera e l'inizio dell'autunno offrono un clima mite, meno affollamento e splendidi tramonti."
+          "answer": "I mesi di Luglio e Agosto sono i più frequentati per la balneazione, ma Giugno e Settembre offrono un clima mite, meno affollamento e splendidi tramonti."
         },
         {
           "question": "È adatta a famiglie con bambini?",
@@ -116,9 +116,11 @@
       "specialties": [
         "Pesce azzurro e provenienza",
         "Pesce del giorno e stagionalità",
-        "Vini autoctoni disponibili: Ettore Sammarco",
+        "Vini autoctoni disponibili: Ettore Sammarco bianco, Selva delle Monache Ettore Sammarco, biancolella d'Ischia, Fiano Colli di Lapio, Vetere rosè, Greco di Tufo Vigna Cicogna",
         "Prodotti tipici",
-        "Limoni sfusato amalfitano dal nostro limoneto"
+        "Piatti tipici (non tutti sempre disponibili): Spaghetto con Colatura di Alici, pomodorino confit e gel di limone frizzante, Pasta alla Carlofortina con pesto di basilico grossolano con mandorle e noci, tonno fresco e pomodorino arrostito",
+        "Limoni sfusato amalfitano dal nostro limoneto",
+        "non facciamo le pizze"
       ],
       "experiences": {
         "romantic_dinner": "marinadalbori è il luogo ideale per una cena romantica al chiaro di luna, con l'arrivo in taxi boat è possibile vedere Vietri sul Mare e Raito con tutte le loro luci, creando un'atmosfera che colpirà di sicuro el partner suscitando forti emozioni.",
