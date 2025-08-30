@@ -1,5 +1,67 @@
 const fetch = require('node-fetch');
 
+// Funzione helper per generare contesto temporale
+function generateTimeContext() {
+  const now = new Date();
+  const italianDateTime = now.toLocaleString('it-IT', {
+    timeZone: 'Europe/Rome',
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const hour = now.getHours();
+  
+  // Determina se il ristorante è nella stagione operativa
+  const isRestaurantSeason = (month === 5 && day >= 15) || 
+                            (month > 5 && month < 9) || 
+                            (month === 9 && day <= 15);
+  
+  let seasonalInfo = '';
+  if (month >= 6 && month <= 8) {
+    seasonalInfo = 'Stagione estiva - Alta stagione turistica';
+  } else if ((month === 5 && day >= 15) || (month === 9 && day <= 15)) {
+    seasonalInfo = 'Periodo di apertura ristorante - Stagione ideale per visite';
+  } else if (month >= 10 || month <= 2) {
+    seasonalInfo = 'Periodo invernale - Ristorante chiuso ma zona visitabile';
+  } else {
+    seasonalInfo = 'Periodo di pre-stagione - Preparativi apertura';
+  }
+  
+  let serviceStatus = '';
+  if (isRestaurantSeason) {
+    if ((hour >= 12 && hour < 15) || (hour >= 19 && hour < 22)) {
+      serviceStatus = '✅ Ristorante attualmente in orario di servizio';
+    } else if (hour >= 15 && hour < 19) {
+      serviceStatus = '⏰ Ristorante chiuso tra pranzo e cena (riapre alle 19:30)';
+    } else {
+      serviceStatus = '🕐 Ristorante attualmente chiuso - riapre per pranzo (12:30) o cena (19:30)';
+    }
+  } else {
+    serviceStatus = '❄️ Ristorante chiuso per stagione (riapre 15 Maggio)';
+  }
+  
+  return `
+=== CONTESTO TEMPORALE AGGIORNATO (NETLIFY SEARCH) ===
+Data e ora attuali: ${italianDateTime} (fuso orario italiano)
+Stagione: ${seasonalInfo}
+Stato servizio: ${serviceStatus}
+
+IMPORTANTE per prenotazioni future:
+- Il ristorante è aperto SOLO dal 15 Maggio al 15 Settembre
+- Per richieste di prenotazione, calcola sempre se la data richiesta rientra nel periodo di apertura
+- Se la data è oltre il 15 settembre dell'anno corrente, informa che il ristorante sarà chiuso
+- Se la data è prima del 15 maggio dell'anno successivo, informa della data di riapertura
+
+IMPORTANTE: Usa sempre queste informazioni per fornire risposte contestualizzate al momento attuale e calcolare correttamente le date future.
+`;
+}
+
 /**
  * Servizio per l'integrazione con l'API di Tavily
  * Versione serverless per Netlify Functions
@@ -334,6 +396,16 @@ Utilizza queste informazioni aggiornate per rispondere alla domanda dell'utente,
             }
         }
 
+        // Aggiungi contesto temporale anche per l'endpoint con ricerca
+        const timeContextSearch = generateTimeContext();
+        const finalMessages = [
+            ...enhancedMessages.slice(0, -1), // Tutti i messaggi tranne l'ultimo
+            { role: 'system', content: timeContextSearch }, // Contesto temporale
+            enhancedMessages[enhancedMessages.length - 1] // Ultimo messaggio utente
+        ];
+        
+        console.log('📅 [Netlify Search] Aggiunto contesto temporale:', timeContextSearch.length, 'caratteri');
+
         // Call OpenRouter API with enhanced messages
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
             method: 'POST',
@@ -343,7 +415,7 @@ Utilizza queste informazioni aggiornate per rispondere alla domanda dell'utente,
             },
             body: JSON.stringify({
                 model: model,
-                messages: enhancedMessages
+                messages: finalMessages
             })
         });
 

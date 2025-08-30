@@ -256,9 +256,43 @@ class ChatBot {
             return 'Configurazione mancante. Inserisci Model ID nel file config/main-config.json';
         }
 
-        // Costruisci i messaggi con i system prompt
+        // Ottieni informazioni temporali correnti in italiano
+        const now = new Date();
+        const italianDateTime = now.toLocaleString('it-IT', {
+            timeZone: 'Europe/Rome',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        const seasonInfo = this.getSeasonInfo(now);
+        const timeContext = `
+=== INFORMAZIONI TEMPORALI CORRENTI ===
+Data e ora attuali: ${italianDateTime} (fuso orario italiano)
+${seasonInfo}
+
+IMPORTANTE per prenotazioni future:
+- Il ristorante è aperto SOLO dal 15 Maggio al 15 Settembre (inclusi)
+- Per richieste di prenotazione, calcola sempre se la data richiesta rientra nel periodo di apertura
+- Esempi: 16 settembre = CHIUSO, 14 maggio = CHIUSO, 15 maggio = APERTO, 15 settembre = APERTO
+- Se la data è oltre il 15 settembre dell'anno corrente, informa che il ristorante sarà chiuso e la data di riapertura
+- Se la data è prima del 15 maggio dell'anno successivo, informa della data di riapertura (15 maggio)
+
+Usa queste informazioni per:
+- Fornire risposte contestualizzate al momento attuale
+- Verificare se il ristorante è aperto (stagione: 15 Maggio - 15 Settembre)
+- Dare suggerimenti appropriati per la stagione corrente
+- Calcolare correttamente le date future per le prenotazioni
+- Menzionare eventi o condizioni temporali rilevanti
+`;
+
+        // Costruisci i messaggi con i system prompt e il contesto temporale
         const messages = [
-            { role: 'system', content: this.config.primarySystemPrompt }
+            { role: 'system', content: this.config.primarySystemPrompt },
+            { role: 'system', content: timeContext }
         ];
         
         // Aggiungi il system prompt secondario se presente
@@ -270,6 +304,7 @@ class ChatBot {
         }
         
         console.log('📨 [Chat Debug] Messaggi da inviare all\'AI:', messages.length, 'messaggi system + conversazione');
+        console.log('📅 [Chat Debug] Contesto temporale aggiunto:', timeContext.length, 'caratteri');
         
         // Aggiungi tutti i messaggi precedenti della conversazione per mantenere il contesto
         messages.push(...this.messages);
@@ -366,6 +401,60 @@ class ChatBot {
                 }, 300);
             }
         }, 4000);
+    }
+
+    // Metodo per determinare informazioni stagionali e contestuali
+    getSeasonInfo(date) {
+        const month = date.getMonth() + 1; // 0-based, quindi +1
+        const day = date.getDate();
+        const hour = date.getHours();
+        
+        // Determina se il ristorante è nella stagione operativa
+        const isRestaurantSeason = (month === 5 && day >= 15) || 
+                                  (month > 5 && month < 9) || 
+                                  (month === 9 && day <= 15);
+        
+        // Determina la stagione turistica
+        let seasonalInfo = '';
+        if (month >= 6 && month <= 8) {
+            seasonalInfo = 'Stagione estiva - Alta stagione turistica';
+        } else if ((month === 5 && day >= 15) || (month === 9 && day <= 15)) {
+            seasonalInfo = 'Periodo di apertura ristorante - Stagione ideale per visite';
+        } else if (month >= 10 || month <= 2) {
+            seasonalInfo = 'Periodo invernale - Ristorante chiuso ma zona visitabile';
+        } else {
+            seasonalInfo = 'Periodo di pre-stagione - Preparativi apertura';
+        }
+        
+        // Informazioni orarie
+        let timeOfDay = '';
+        if (hour >= 5 && hour < 12) {
+            timeOfDay = 'Mattina';
+        } else if (hour >= 12 && hour < 17) {
+            timeOfDay = 'Pomeriggio';
+        } else if (hour >= 17 && hour < 21) {
+            timeOfDay = 'Sera';
+        } else {
+            timeOfDay = 'Notte';
+        }
+        
+        // Controlla se siamo in orari di servizio
+        let serviceStatus = '';
+        if (isRestaurantSeason) {
+            if ((hour >= 12 && hour < 15) || (hour >= 19 && hour < 22)) {
+                serviceStatus = '✅ Ristorante attualmente in orario di servizio';
+            } else if (hour >= 15 && hour < 19) {
+                serviceStatus = '⏰ Ristorante chiuso tra pranzo e cena (riapre alle 19:30)';
+            } else {
+                serviceStatus = '🕐 Ristorante attualmente chiuso - riapre per pranzo (12:30) o cena (19:30)';
+            }
+        } else {
+            serviceStatus = '❄️ Ristorante chiuso per stagione (riapre 15 Maggio)';
+        }
+        
+        return `Stagione: ${seasonalInfo}
+Momento della giornata: ${timeOfDay}
+Stato servizio: ${serviceStatus}`;
     }
 }
 
