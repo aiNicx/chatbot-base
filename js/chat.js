@@ -264,7 +264,12 @@ class ChatBot {
         // Aggiungi il system prompt secondario se presente
         if (this.config.secondarySystemPrompt) {
             messages.push({ role: 'system', content: this.config.secondarySystemPrompt });
+            console.log('🤖 [Chat Debug] Secondary prompt inviato:', this.config.secondarySystemPrompt.length, 'caratteri');
+        } else {
+            console.warn('⚠️ [Chat Debug] NESSUN secondary prompt trovato!');
         }
+        
+        console.log('📨 [Chat Debug] Messaggi da inviare all\'AI:', messages.length, 'messaggi system + conversazione');
         
         // Aggiungi tutti i messaggi precedenti della conversazione per mantenere il contesto
         messages.push(...this.messages);

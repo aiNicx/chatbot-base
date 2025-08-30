@@ -1,5 +1,5 @@
 {
-  "modelId": "openai/gpt-oss-120b",
+  "modelId": "google/gemini-2.0-flash-001",
   "systemConfig": {
     "behavior": {
       "role": "Sei un assistente AI progettato per fornire risposte utili e innocue.",
