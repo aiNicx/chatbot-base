@@ -106,7 +106,7 @@
     },
     "restaurant": {
       "name": "marinadalbori",
-      "setting": "Sala solo esterna vista mare, direttamente sulla spiaggia alla destra del fiume",
+      "setting": "Sala solo esterna vista mare, direttamente sulla spiaggia",
       "schedule": {
         "season": "Il ristorante è aperto dal 15 Maggio al 15 Settembre",
         "lunch": "pranzo dalle 12:30 alle 15:15",
@@ -114,13 +114,13 @@
         "note": "in queste fasce orarie si intende che è possibile sedersi e ordinare piatti della cucina, ma chiaramente il ristorante è aperto da prima delle 12:30, chiude le porte intorno alle 16:30, le riapre per le 19:00 e le richiude quando l'ultimo cliente serale è andato via."
       },
       "specialties": [
-        "Pesce azzurro e provenienza",
-        "Pesce del giorno e stagionalità",
-        "Vini autoctoni disponibili: Ettore Sammarco bianco, Selva delle Monache Ettore Sammarco, biancolella d'Ischia, Fiano Colli di Lapio, Vetere rosè, Greco di Tufo Vigna Cicogna",
-        "Prodotti tipici",
-        "Piatti tipici (non tutti sempre disponibili): Spaghetto con Colatura di Alici, pomodorino confit e gel di limone frizzante, Pasta alla Carlofortina con pesto di basilico grossolano con mandorle e noci, tonno fresco e pomodorino arrostito",
-        "Limoni sfusato amalfitano dal nostro limoneto",
-        "non facciamo le pizze"
+        "Pesce azzurro: Alici di Cetara, sgombri locali, orate e spigole di mare",
+        "Pesce del giorno: Orate, Dentici, Ricciola, Spigola, San Pietro, Pescatrice",
+        "Vini autoctoni disponibili: Ettore Sammarco bianco, Selva delle Monache Ettore Sammarco, Fior D'uva Marisa Cuomo, biancolella d'Ischia, Fiano Colli di Lapio, Vetere rosè, Greco di Tufo Vigna Cicogna",
+        "Prodotti tipici: Colatura di Alici, Limoni sfusato amalfitano dal nostro limoneto, gelato dei nostri limoni, limoncello artigianale",
+        "Piatti tipici (non tutti sempre disponibili): Spaghetto con Colatura di Alici, pomodorino confit e gel di limone frizzante, Pasta alla Carlofortina con pesto di basilico grossolano con mandorle e noci, tonno fresco e pomodorino arrostito, Gnocchi crema allo zafferano e calamaretti, Dentice in jus",
+        "non facciamo le pizze, non facciamo i panini",
+        "possibilità di pasta e piatti senza glutine"
       ],
       "experiences": {
         "romantic_dinner": "marinadalbori è il luogo ideale per una cena romantica al chiaro di luna, con l'arrivo in taxi boat è possibile vedere Vietri sul Mare e Raito con tutte le loro luci, creando un'atmosfera che colpirà di sicuro el partner suscitando forti emozioni.",
@@ -252,7 +252,7 @@
         "facebook": "https://www.facebook.com/marinadalbori",
         "tiktok": "https://www.tiktok.com/@marinadalbori?_t=ZN-8zFHG7nnBBO&_r=1"
       },
-      "booking": "contattare via telefono, whatsapp o canali social",
+      "booking": "contattare via whatsapp o canali social",
       "languages": ["italiano", "inglese"]
     }
   },
@@ -262,22 +262,20 @@
       "methods": [
         "**WhatsApp**:",
         "[BUTTON:📱 WhatsApp +39 3478671652|https://wa.me/393478671652]",
-        "**Email**: [BUTTON:📧 Invia Email|mailto:marinadalbori@gmail.com]",
         "**Social**:",
         "[BUTTON:📸 Instagram|https://www.instagram.com/marinadalbori/]",
         "[BUTTON:📘 Facebook|https://www.facebook.com/marinadalbori]",
         "[BUTTON:🎵 TikTok|https://www.tiktok.com/@marinadalbori?_t=ZN-8zFHG7nnBBO&_r=1]"
       ],
-      "note": "Consigliamo di prenotare in anticipo, soprattutto per cene e pacchetti esperienziali.",
+      "note": "Consigliamo di prenotare in anticipo, soprattutto per i pacchetti esperienziali.",
       "season_note": "Ricorda che siamo aperti dal 15 Maggio al 15 Settembre."
     },
     "access": {
       "intro": "Per raggiungere Marina D'Albori hai diverse opzioni:",
       "options": [
         "**A piedi**: 200 scalini dalla SS163 (parcheggio a pagamento 8:00-18:00 o lungo strada)",
-        "**Taxi boat**: Da Marina di Vietri (Pontile Vietri Vacanze), 5€ andata e 5€ ritorno (bambini metà prezzo) - solo per clienti del ristorante",
-        "**Barca privata**: Ormeggio alle nostre boe o molo (gratuito per clienti) con servizio sbarco/imbarco",
-        "**Via spiaggia**: Accesso libero, lettini presso i lidi (non si possono posare asciugamani)"
+        "**Taxi boat**: Da Marina di Vietri (Pontile Vietri Vacanze), 5€ andata e 5€ ritorno (10€ in totale per andata e ritorno) (bambini metà prezzo) - solo per clienti del ristorante",
+        "**Barca privata**: Ormeggio alle nostre boe o molo (gratuito per clienti del ristorante) con servizio sbarco/imbarco"
       ]
     },
     "experiences": {
@@ -301,7 +299,7 @@
   },
   "contextualRules": {
     "prioritize": [
-      "Se chiesto di prenotazioni, fornire sempre contatti completi e menzionare la stagionalità",
+      "Se chiesto di prenotazioni, fornire sempre contatti completi e se fuori stagione o a ridosso della fine, menzionare la stagionalità",
       "Per domande su accesso, spiegare tutte le alternative disponibili con dettagli precisi",
       "Evidenziare sempre l'unicità della location (vista mare, limoneto, atmosfera, posizione sulla spiaggia)",
       "Utilizzare i template di risposta appropriati per scenari comuni",
