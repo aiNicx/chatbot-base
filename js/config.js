@@ -54,6 +54,22 @@ class Config {
     static buildPromptFromConfig(config, isSecondary = false) {
         let prompt = '';
         
+        // Aggiungi istruzione critica per il rilevamento lingua all'inizio
+        if (!isSecondary) {
+            prompt += `🚨 ISTRUZIONE CRITICA LINGUA 🚨
+DEVI SEMPRE rilevare automaticamente la lingua del messaggio dell'utente e rispondere ESCLUSIVAMENTE in quella stessa lingua.
+- Se l'utente scrive in inglese → rispondi in inglese
+- Se l'utente scrive in spagnolo → rispondi in spagnolo  
+- Se l'utente scrive in francese → rispondi in francese
+- Se l'utente scrive in tedesco → rispondi in tedesco
+- Se l'utente scrive in italiano → rispondi in italiano
+- E così via per qualsiasi altra lingua
+
+NON mescolare mai le lingue. NON rispondere in italiano se l'utente scrive in un'altra lingua.
+
+`;
+        }
+        
         // Processa ricorsivamente ogni chiave della configurazione
         for (const [key, value] of Object.entries(config)) {
             if (value && typeof value === 'object') {
