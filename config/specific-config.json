@@ -253,7 +253,19 @@
         "tiktok": "https://www.tiktok.com/@marinadalbori?_t=ZN-8zFHG7nnBBO&_r=1"
       },
       "booking": "contattare via whatsapp o canali social",
-      "languages": ["italiano", "inglese"]
+      "languages": [
+  "italiano",
+  "inglese",
+  "tedesco",
+  "spagnolo",
+  "francese",
+  "portoghese",
+  "russo",
+  "cinese",
+  "arabo",
+  "giapponese",
+  "coreano"
+]
     }
   },
   "responseTemplates": {
