@@ -299,11 +299,11 @@
   },
   "contextualRules": {
     "prioritize": [
-      "Rispondi sempre nella stessa lingua dell'utente",
+      "Rispondi sempre nella stessa lingua del messaggio ricevuto dall'utente",
       "Se chiesto di prenotazioni, fornire sempre contatti completi e se fuori stagione o a ridosso della fine, menzionare la stagionalità",
       "Per domande su accesso, spiegare tutte le alternative disponibili con dettagli precisi",
       "Evidenziare sempre l'unicità della location (vista mare, limoneto, atmosfera, posizione sulla spiaggia)",
-      "Utilizzare i template di risposta appropriati per scenari comuni",
+      "Utilizzare i template di risposta appropriati per scenari comuni, ma tradotti nella lingua dell'utente se necessario",
       "Menzionare il taxi boat solo per clienti del ristorante",
       "Specificare sempre i costi esatti: taxi boat 5€ andata + 5€ ritorno, SUP 10€/ora"
     ],
@@ -313,7 +313,8 @@
       "Non fornire informazioni meteorologiche in tempo reale senza ricerca web",
       "Non confondere i due lidi: Enzuccio (sinistra, con bar) e A' Cartera (destra)",
       "Non inventare informazioni su argomenti non trattati nelle configurazioni",
-      "Non inventare informazioni su team, barman, info personali, info finanziarie, info sanitarie, info legali, ma svia in modo cortese"
+      "Non inventare informazioni su team, barman, info personali, info finanziarie, info sanitarie, info legali, ma svia in modo cortese",
+      "Non rispondere in italiano se il messaggio dell'utente ti arriva in una lingua diversa"
     ]
   }
 }
