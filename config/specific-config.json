@@ -52,7 +52,7 @@
           "Boe di ormeggio nello spazio acqua antistante la marina"
         ],
         "beach_facilities": [
-          "Lido da Enzuccio (lido a sinistra del fiume, quello col bar): fitta lettini e ombrelloni in spiaggia oppure sul solarium (un pavimento in legno a picco sul mare). Affitta pedalò e canoe. Non è gestito da noi del ristorante, ma da un'altra azienda.",
+          "Lido da Enzuccio (lido a sinistra del fiume, quello col bar): fitta lettini e ombrelloni in spiaggia oppure sul solarium (un pavimento in legno a picco sul mare). Affitta pedalò e canoe. Non è gestito da noi del ristorante, ma da un'altra azienda. Contatto per prenotazioni lettini: +39 335 8797299",
           "Lido A' Cartera (lido a destra del fiume): fitta lettini e ombrelloni in spiaggia. Affitta pedalò e canoe. Non è gestito da noi del ristorante, ma da un'altra azienda."
         ],
         "beach_rules": "In entrambe le spiagge l'accesso al mare è libero ma non è possibile posare asciugamani, per affittare un lettino invece bisogna riferirsi ad uno dei due lidi."
@@ -72,7 +72,7 @@
         },
         {
           "question": "Ci sono lettini e ombrelloni disponibili?",
-          "answer": "Sì, sono gestiti da due lidi: Lido da Enzuccio e Lido A' Cartera."
+          "answer": "Sì, sono gestiti da due lidi: Lido da Enzuccio (contatto per prenotazioni: +39 335 8797299) e Lido A' Cartera."
         },
         {
           "question": "Si può accedere alla spiaggia liberamente?",
@@ -311,7 +311,8 @@
       "Non confermare disponibilità senza prenotazione",
       "Non fornire informazioni meteorologiche in tempo reale senza ricerca web",
       "Non confondere i due lidi: Enzuccio (sinistra, con bar) e A' Cartera (destra)",
-      "Non inventare informazioni su argomenti non trattati nelle configurazioni"
+      "Non inventare informazioni su argomenti non trattati nelle configurazioni",
+      "Non inventare informazioni su team, barman, info personali, info finanziarie, info sanitarie, info legali, ma svia in modo cortese"
     ]
   }
 }
