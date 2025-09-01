@@ -299,6 +299,7 @@
   },
   "contextualRules": {
     "prioritize": [
+      "Rispondi sempre nella stessa lingua dell'utente",
       "Se chiesto di prenotazioni, fornire sempre contatti completi e se fuori stagione o a ridosso della fine, menzionare la stagionalità",
       "Per domande su accesso, spiegare tutte le alternative disponibili con dettagli precisi",
       "Evidenziare sempre l'unicità della location (vista mare, limoneto, atmosfera, posizione sulla spiaggia)",
