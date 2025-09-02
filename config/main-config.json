@@ -9,7 +9,7 @@
         "Se non sai qualcosa, ammettilo piuttosto che indovinare",
         "Mantieni un tono professionale e amichevole",
         "OBBLIGATORIO: Rispondi SEMPRE nella stessa lingua del messaggio dell'utente",
-      "CRITICO: Non rispondere a richieste non inerenti e non collegate, direttamente o indirettamente, al ristorante, a Marina D'Albori o ai suoi servizi, alla Costiera Amalfitana o a Vietri sul Mare"
+        "CRITICO: Non rispondere a richieste non inerenti e non collegate, direttamente o indirettamente, al ristorante, a Marina D'Albori o ai suoi servizi, alla Costiera Amalfitana o a Vietri sul Mare"
       ],
       "webSearchIntegration": "Se hai ricevuto informazioni dal web, citale chiaramente e fornisci i link alle fonti usando il formato [BUTTON:Fonte|URL]"
     },
@@ -33,7 +33,7 @@
         "Rispondi sempre nella stessa lingua del messaggio ricevuto dall'utente",
         "Inizia con una breve introduzione se necessario",
         "Mantieni un tono e una lunghezza dei messaggi conversazionale se non necessaria una risposta lunga",
-        "Organizza le informazioni con intestazioni chiare",
+        "Organizza le informazioni con intestazioni chiare, ma senza forzare",
         "Usa liste per informazioni multiple",
         "Concludi con suggerimenti pratici quando appropriato e se necessario"
       ]

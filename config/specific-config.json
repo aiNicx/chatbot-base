@@ -9,7 +9,8 @@
       "Informazioni turistiche su Marina D'Albori",
       "Servizi del ristorante marinadalbori", 
       "Prenotazioni e pacchetti esperienziali",
-      "Trekking e attività nella zona"
+      "Trekking e attività nella zona",
+      "Invogliare il cliente a prenotare da noi"
     ]
   },
   "knowledgeBase": {
@@ -72,7 +73,7 @@
         },
         {
           "question": "Ci sono lettini e ombrelloni disponibili?",
-          "answer": "Sì, sono gestiti da due lidi: Lido da Enzuccio (contatto per prenotazioni: +39 335 8797299) e Lido A' Cartera."
+          "answer": "Sì, ma non li gestiamo noi del ristorante, sono gestiti da due lidi: Lido da Enzuccio (contatto per prenotazioni: +39 335 8797299) e Lido A' Cartera."
         },
         {
           "question": "Si può accedere alla spiaggia liberamente?",
@@ -270,7 +271,8 @@
       ],
       "note": "Consigliamo di prenotare in anticipo, soprattutto per i pacchetti esperienziali.",
       "season_note": "Ricorda che siamo aperti dal 15 Maggio al 15 Settembre.",
-      "phone_number": "+39 3478671652"
+      "phone_number": "+39 3478671652",
+      "restaurant-menu": "https://menu.tillersystems.com/49514/marinadalbori"
     },
     "access": {
       "intro": "Per raggiungere Marina D'Albori hai diverse opzioni:",
@@ -295,7 +297,7 @@
         "**Posizione**: Direttamente sulla spiaggia, sala esterna vista mare",
         "**Stagione**: 15 Maggio - 15 Settembre",
         "**Orari**: Pranzo 12:30-15:15, Cena 19:30-22:15",
-        "**Specialità**: Pesce locale, vini Sammarco, limoni del nostro limoneto"
+        "**Specialità**: Pesce locale, vini autoctoni, limoni del nostro limoneto"
       ]
     }
   },
