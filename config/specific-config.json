@@ -262,14 +262,15 @@
       "intro": "Per prenotare al ristorante marinadalbori:",
       "methods": [
         "**WhatsApp**:",
-        "[BUTTON:📱 WhatsApp +39 3478671652|https://wa.me/393478671652]",
+        "[BUTTON:📱 WhatsApp|https://wa.me/393478671652]",
         "**Social**:",
         "[BUTTON:📸 Instagram|https://www.instagram.com/marinadalbori/]",
         "[BUTTON:📘 Facebook|https://www.facebook.com/marinadalbori]",
         "[BUTTON:🎵 TikTok|https://www.tiktok.com/@marinadalbori?_t=ZN-8zFHG7nnBBO&_r=1]"
       ],
       "note": "Consigliamo di prenotare in anticipo, soprattutto per i pacchetti esperienziali.",
-      "season_note": "Ricorda che siamo aperti dal 15 Maggio al 15 Settembre."
+      "season_note": "Ricorda che siamo aperti dal 15 Maggio al 15 Settembre.",
+      "phone_number": "+39 3478671652"
     },
     "access": {
       "intro": "Per raggiungere Marina D'Albori hai diverse opzioni:",
