@@ -204,22 +204,19 @@ class ChatBot {
         // Mostra il messaggio di benvenuto senza aggiungerlo alla cronologia
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message bot-message';
-        
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'message-content';
-        contentDiv.textContent = 'Ciao! Sono il tuo assistente virtuale. Come posso aiutarti?';
-        
+        contentDiv.textContent = 'Ciao! Sono il chatbot di marinadalbori, come posso aiutarti?';
+
         const timeDiv = document.createElement('div');
         timeDiv.className = 'message-time';
-        timeDiv.textContent = new Date().toLocaleTimeString('it-IT', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-        
+        timeDiv.textContent = '10:00';
+
         messageDiv.appendChild(contentDiv);
         messageDiv.appendChild(timeDiv);
         this.chatMessages.appendChild(messageDiv);
-        
+
         // NON aggiungere alla cronologia - questo è solo un messaggio di benvenuto
         this.scrollToBottom();
     }
